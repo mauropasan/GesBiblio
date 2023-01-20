@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-dark text-white">
-        <footer class="p-2">gesBiblio 1.0</footer>
+    <div>
+        <footer class="mb-3">gesBiblio 1.0</footer>
     </div>
 </template>

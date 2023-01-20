@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 d-flex">
+    <div class="col-12 d-flex sticky-top">
         <nav class="bg-dark text-white col-12">
         <h1>GesBiblio</h1>
         <ul>

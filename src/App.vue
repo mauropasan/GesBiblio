@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="container-fluid">
     <app-menu></app-menu>
     <router-view></router-view>
     <app-footer></app-footer>

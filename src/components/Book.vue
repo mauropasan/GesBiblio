@@ -8,27 +8,40 @@ export default {
     },
     computed: {
         ...mapState(useDataStore, {
-            getTopicById: 'getTopicById'
+            getTopicById: 'getTopicById',
+            getAuthorById: 'getAuthorById',
         })
     }
 }
 </script>
 
 <template>
-    <tr>
-        <td>{{ book.ISBN }}</td>
-        <td>{{ book.nombre }}</td>
-        <td>{{ getTopicById(Number(book.topic)).name }}</td>
-        <td><img :src="'./src/assets/' + book.img" :alt="book.img" class="w-25"></td>
-        <td class="buttons">
-            <button type="button" class="btn btn-dark" @click="$router.push(`/edit-book/${book.id}`)">
-                <i class="bi bi-eye"></i>
+    <div class="col-4">
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img :src="'./src/assets/' + book.img" class="card-img-top foto" :alt="book.name" />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ book.nombre }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ getAuthorById(book.autor).nombre }}</h6>
+            <p class="card-text"><small class="text-muted">{{ getTopicById(book.tema).nombre }}</small></p>
+            <p class="card-text">{{ book.desc}}</p>
+            <button class="btn btn-secondary" title="Editar">
+              <i class="bi bi-pencil"></i>
             </button>
-            <button type="button" class="btn btn-dark" @click="delProd">
-                <i class="bi bi-calendar"></i>
+            <button class="btn btn-secondary" title="Eliminar">
+              <i class="bi bi-trash"></i>
             </button>
-        </td>
-    </tr>
+            <button class="btn btn-secondary" title="Ver autor">
+              <i class="bi bi-person"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <style>

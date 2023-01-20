@@ -19,14 +19,17 @@ export default {
     <div>
         <h1>Listado de autores</h1>
         <template v-if="authors.length">
-            <table class="col-12">
-                <thead class="bg-dark">
-                    <th colspan="5" class="p-3"></th>
-                </thead>
-                <tbody>
-                    <author v-for="author in authors" :key="author.id" :author="author"></author>
-                </tbody>
-            </table>
+            <div>
+                <table class="col-12">
+                    <thead class="bg-dark">
+                        <th colspan="6" class="p-3"></th>
+                    </thead>
+                    <tbody>
+                        <author v-for="author in authors" :key="author.id" :author="author"></author>
+                    </tbody>
+                    <strong>Autores listados: {{ authors.length }}</strong>
+                </table>
+            </div>
         </template>
         <template v-else>
             <p>No hay ningún autor en la biblioteca.</p>

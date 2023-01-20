@@ -11,7 +11,9 @@ export const useDataStore = defineStore('data', {
       messages: [],
   }),
   getters: {
-    getTopicById: (state) => (id) => state.topics.find(topic => topic.id = id) || {}
+    getAuthorById: (state) => (id) => state.authors.find(author => author.id === id) || {},
+    getBookById: (state) => (id) => state.books.find(book => book.id === id) || {},
+    getTopicById: (state) => (id) => state.topics.find(topic => topic.id === id) || {},
   },
   actions: {
     async loadData() {
@@ -24,25 +26,6 @@ export const useDataStore = defineStore('data', {
         this.setMessage(err)
       }
     },
-    async addTodo(title) {
-      try {
-        const newToDo = await axios.post(`${SERVER}/todos`, {
-          title,
-          done: false,
-        })
-        this.todos.push(newToDo)
-      } catch (err) {
-        setMessage(err)
-      }
-    }
-  },
-  async getTodos() {
-    try {
-      const response = await axios.get(`${SERVER}/todos`)
-      this.todos = response.data
-    } catch(err) {
-      setMessage(err)
-    }
   },
   setMessage(message) {
     this.messages.push(message)
