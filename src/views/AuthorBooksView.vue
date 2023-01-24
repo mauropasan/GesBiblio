@@ -4,12 +4,15 @@ import Book from '../components/Book.vue';
 import { useDataStore } from '../stores/data';
 
 export default {
+    props: {
+        id: String,
+    },
     components: {
         Book,
     },
     computed: {
         ...mapState(useDataStore, {
-            books: 'books',
+            getBooksByAuthorId: 'getBooksByAuthorId',
         })
     }
 }
@@ -17,12 +20,10 @@ export default {
 
 <template>
     <h1>Listado de libros</h1>
-    <template v-if="books.length">
-        <div class="row col-11">
-            <book v-for="book in books" :key="book.id" :book="book"></book>
-        </div>
+    <template v-if="getBooksByAuthorId(Number(id)).length">
+        <book v-for="book in getBooksByAuthorId(Number(id))" :key="book.id" :book="book"></book>
     </template>
     <template v-else>
-        <p>No hay ningún libro en la biblioteca.</p>
+        <p>No hay ningún libro escrito por este autor.</p>
     </template>
 </template>

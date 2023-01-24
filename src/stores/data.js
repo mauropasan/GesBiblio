@@ -14,6 +14,7 @@ export const useDataStore = defineStore('data', {
     getAuthorById: (state) => (id) => state.authors.find(author => author.id === id) || {},
     getBookById: (state) => (id) => state.books.find(book => book.id === id) || {},
     getTopicById: (state) => (id) => state.topics.find(topic => topic.id === id) || {},
+    getBooksByAuthorId: (state) => (id) => state.books.find(book => book.autor === id) || {},
   },
   actions: {
     async loadData() {

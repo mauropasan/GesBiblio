@@ -18,7 +18,7 @@ export default {
             <button type="button" class="btn btn-dark" @click="$router.push(`/autor/${Number(author.id)}`)">
                 <i class="bi bi-eye"></i>
             </button>
-            <button type="button" class="btn btn-dark" @click="$router.push(`/autor/libros`)">
+            <button type="button" class="btn btn-dark" @click="$router.push(`/libros/${author.id}`)">
                 <i class="bi bi-calendar"></i>
             </button>
         </td>

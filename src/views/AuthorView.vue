@@ -24,8 +24,8 @@ export default {
                     <div class="card-body">
                         <h5 class="card-title">{{ `${this.getAuthorById(Number(id)).nombre} ${this.getAuthorById(Number(id)).apellidos}`}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ `${this.getAuthorById(Number(id)).nacionalidad}` }}</h6>
-                        <button class="btn btn-secondary" title="Ver libros" @click="$router.push(`/autor/${Number(id)}/libros`)">
-                            <i class="bi bi-person"></i>
+                        <button class="btn btn-secondary" title="Ver libros" @click="$router.push(`/libros/${Number(id)}`)">
+                            <i class="bi bi-book"></i>
                         </button>
                     </div>
                 </div>
